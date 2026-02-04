@@ -1,0 +1,1872 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مجال الإنجاز للأعمال المتقدمة | Majal Al Enjaz</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-orange: #e67e50;
+        --primary-red: #c85a6e;
+        --primary-gold: #c5a572;
+        --dark-bg: #1a1a1a;
+        --light-bg: #f5f5f5;
+        --text-dark: #2c2c2c;
+        --text-light: #ffffff;
+        --accent-brown: #8b7355;
+      }
+
+      body {
+        font-family: "Cairo", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.8;
+        color: var(--text-dark);
+        transition: all 0.3s ease;
+      }
+
+      body[dir="ltr"] {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Header */
+      header {
+        background: var(--dark-bg);
+        color: var(--text-light);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-container {
+        height: 100px;
+        transition: transform 0.3s;
+      }
+
+      .logo-container:hover {
+        transform: scale(1.05);
+      }
+
+      .logo-container img {
+        height: 100%;
+        width: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.3s;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-orange);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .lang-toggle {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange) 0%,
+          var(--primary-red) 100%
+        );
+        color: white;
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(230, 126, 80, 0.3);
+      }
+
+      .lang-toggle:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(230, 126, 80, 0.4);
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #2c2c2c 50%,
+          #1a1a1a 100%
+        );
+        color: var(--text-light);
+        padding: 180px 0 120px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 L50 0 L100 50 L50 100 Z" fill="rgba(230,126,80,0.05)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 900;
+      }
+
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 300;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .stat-item {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 2.5rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(230, 126, 80, 0.2);
+        transition: all 0.3s;
+      }
+
+      .stat-item:hover {
+        background: rgba(230, 126, 80, 0.1);
+        transform: translateY(-10px);
+        border-color: var(--primary-orange);
+      }
+
+      .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* Vision & Mission */
+      .vision-mission {
+        padding: 100px 0;
+        background: var(--light-bg);
+      }
+
+      .vm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .vm-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-top: 5px solid;
+        border-image: linear-gradient(
+            90deg,
+            var(--primary-orange),
+            var(--primary-red)
+          )
+          1;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vm-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          135deg,
+          transparent,
+          rgba(230, 126, 80, 0.05)
+        );
+        transform: rotate(45deg);
+        transition: all 0.5s;
+      }
+
+      .vm-card:hover::before {
+        top: -60%;
+        right: -60%;
+      }
+
+      .vm-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 50px rgba(230, 126, 80, 0.2);
+      }
+
+      .vm-card h3 {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 900;
+        position: relative;
+      }
+
+      .vm-card p {
+        font-size: 1.1rem;
+        line-height: 2;
+        position: relative;
+      }
+
+      /* Services */
+      .services {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        color: var(--dark-bg);
+        margin-bottom: 1rem;
+        font-weight: 900;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--accent-brown);
+        margin-bottom: 4rem;
+        font-size: 1.2rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .service-card {
+        background: var(--light-bg);
+        padding: 2.5rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s;
+      }
+
+      .service-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .service-card:hover {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        color: white;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.3);
+      }
+
+      .service-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s;
+      }
+
+      .service-card:hover .service-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .service-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      /* Projects */
+      .projects {
+        padding: 100px 0;
+        background: var(--light-bg);
+      }
+
+      .project-categories {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+        flex-wrap: wrap;
+      }
+
+      .category-btn {
+        padding: 1rem 2rem;
+        background: white;
+        border: 2px solid var(--primary-orange);
+        color: var(--dark-bg);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .category-btn:hover,
+      .category-btn.active {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(230, 126, 80, 0.3);
+        border-color: transparent;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.2);
+      }
+
+      .project-image {
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+
+      .image-overlay i {
+        font-size: 3.5rem;
+        opacity: 0.9;
+      }
+
+      .project-content {
+        padding: 2rem;
+      }
+
+      .project-content h4 {
+        color: var(--dark-bg);
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .project-location {
+        color: var(--primary-orange);
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .project-location i {
+        font-size: 1.1rem;
+      }
+
+      /* UNESCO Sites */
+      .unesco {
+        padding: 100px 0;
+        background: var(--dark-bg);
+        color: var(--text-light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .unesco::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(230, 126, 80, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 30s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .unesco-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .unesco-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .unesco-card {
+        background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+        padding: 0;
+        border-radius: 20px;
+        border: 2px solid var(--primary-orange);
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .unesco-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(230, 126, 80, 0.5);
+        border-color: var(--primary-red);
+      }
+
+      /* Image Container */
+      .unesco-image {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .unesco-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .unesco-card:hover .unesco-image img {
+        transform: scale(1.15);
+        opacity: 0.8;
+      }
+
+      .unesco-card:hover .unesco-overlay {
+        opacity: 1;
+      }
+
+      .unesco-overlay i {
+        font-size: 4.5rem;
+        color: white;
+        transform: scale(0.5) rotate(-20deg);
+        transition: all 0.4s ease;
+      }
+
+      .unesco-card:hover .unesco-overlay i {
+        transform: scale(1) rotate(0deg);
+      }
+
+      /* Title Section */
+      .unesco-card h4 {
+        color: var(--primary-orange);
+        padding: 2rem 1.5rem;
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-align: center;
+        background: transparent;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .unesco-card:hover h4 {
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .unesco-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .unesco-image {
+          height: 250px;
+        }
+
+        .unesco-overlay i {
+          font-size: 3.5rem;
+        }
+
+        .unesco-card h4 {
+          font-size: 1.15rem;
+          padding: 1.5rem 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .unesco-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .unesco-image {
+          height: 220px;
+        }
+      }
+
+      /* Team */
+      .team {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .team-member {
+        text-align: center;
+        padding: 2.5rem;
+        background: var(--light-bg);
+        border-radius: 15px;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-member::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(230, 126, 80, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .team-member:hover::before {
+        left: 100%;
+      }
+
+      .team-member:hover {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        color: white;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.3);
+      }
+
+      .team-avatar {
+        width: 130px;
+        height: 130px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: 900;
+        border: 4px solid white;
+        box-shadow: 0 10px 30px rgba(230, 126, 80, 0.3);
+        transition: all 0.3s;
+      }
+
+      .team-member:hover .team-avatar {
+        transform: scale(1.1) rotate(5deg);
+        border-color: var(--dark-bg);
+      }
+
+      .team-member h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .team-member p {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      /* Clients */
+      .clients {
+        padding: 100px 0;
+        background: var(--light-bg);
+      }
+
+      .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .client-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 140px;
+        font-weight: 700;
+        color: var(--dark-bg);
+        transition: all 0.3s;
+        font-size: 1.1rem;
+        border: 2px solid transparent;
+      }
+
+      .client-card:hover {
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        color: white;
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.3);
+        border-color: transparent;
+      }
+
+      /* Contact */
+      .contact {
+        padding: 100px 0;
+        background: var(--dark-bg);
+        color: var(--text-light);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .contact-item {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+      }
+
+      .contact-item:hover {
+        background: rgba(230, 126, 80, 0.1);
+        border-color: var(--primary-orange);
+        transform: translateY(-10px);
+      }
+
+      .contact-icon {
+        font-size: 3.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-item h4 {
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .contact-item a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 1.1rem;
+      }
+
+      .contact-item a:hover {
+        color: var(--primary-orange);
+      }
+
+      /* Footer */
+      footer {
+        background: #0a0a0a;
+        color: var(--text-light);
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      footer p {
+        color: var(--primary-orange);
+        font-size: 1.1rem;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          background: var(--dark-bg);
+          flex-direction: column;
+          padding: 2rem;
+          transform: translateX(-100%);
+          transition: transform 0.3s;
+          border-top: 2px solid var(--primary-orange);
+        }
+
+        body[dir="ltr"] .nav-links {
+          transform: translateX(100%);
+        }
+
+        .nav-links.active {
+          transform: translateX(0);
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .logo-container {
+          height: 80px;
+        }
+      }
+
+      /* Scroll to top button */
+      .scroll-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-orange),
+          var(--primary-red)
+        );
+        color: white;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 5px 25px rgba(230, 126, 80, 0.4);
+        transition: all 0.3s;
+        z-index: 999;
+      }
+
+      body[dir="rtl"] .scroll-top {
+        right: auto;
+        left: 2rem;
+      }
+
+      .scroll-top:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(230, 126, 80, 0.5);
+      }
+
+      .scroll-top.show {
+        display: flex;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: fadeInUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body dir="rtl">
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo-container">
+            <img
+              src="./asset/images/logo3.png"
+              alt="Majal Al Enjaz Logo"
+              id="logoImg"
+            />
+          </div>
+
+          <button
+            class="mobile-menu-btn"
+            class="container"
+            onclick="toggleMobileMenu()"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links" id="navLinks">
+            <li>
+              <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+            </li>
+            <li>
+              <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
+            </li>
+            <li>
+              <a href="#services" data-ar="خدماتنا" data-en="Services"
+                >خدماتنا</a
+              >
+            </li>
+            <li>
+              <a href="#projects" data-ar="المشاريع" data-en="Projects"
+                >المشاريع</a
+              >
+            </li>
+            <li><a href="#team" data-ar="فريقنا" data-en="Team">فريقنا</a></li>
+            <li>
+              <a href="#contact" data-ar="تواصل معنا" data-en="Contact"
+                >تواصل معنا</a
+              >
+            </li>
+            <li>
+              <button
+                class="lang-toggle"
+                onclick="toggleLanguage()"
+                id="langBtn"
+              >
+                English
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1
+          class="fade-in"
+          data-ar="مجال الإنجاز للأعمال المتقدمة"
+          data-en="Majal Al Enjaz For Advanced Works"
+        >
+          مجال الإنجاز للأعمال المتقدمة
+        </h1>
+        <p
+          class="fade-in"
+          data-ar="نبني هندسة تجسّد التقدم، ونرمّم تراثاً عريقاً"
+          data-en="Building engineering that embodies progress, restoring heritage with excellence"
+        >
+          نبني هندسة تجسّد التقدم، ونرمّم تراثاً عريقاً
+        </p>
+        <div class="stats">
+          <div class="stat-item fade-in">
+            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="stat-number">21+</div>
+            <div
+              class="stat-label"
+              data-ar="سنة خبرة"
+              data-en="Years of Experience"
+            >
+              سنة خبرة
+            </div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+            <div class="stat-number">130+</div>
+            <div
+              class="stat-label"
+              data-ar="مشروع منفذ"
+              data-en="Completed Projects"
+            >
+              مشروع منفذ
+            </div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-icon"><i class="fas fa-landmark"></i></div>
+            <div class="stat-number">8</div>
+            <div
+              class="stat-label"
+              data-ar="مواقع يونسكو"
+              data-en="UNESCO Sites"
+            >
+              مواقع يونسكو
+            </div>
+          </div>
+          <div class="stat-item fade-in">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-number">700+</div>
+            <div
+              class="stat-label"
+              data-ar="عضو في الفريق"
+              data-en="Team Members"
+            >
+              عضو في الفريق
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission" id="about">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-ar="رؤيتنا ورسالتنا"
+          data-en="Our Vision & Mission"
+        >
+          رؤيتنا ورسالتنا
+        </h2>
+        <div class="vm-grid">
+          <div class="vm-card fade-in">
+            <h3 data-ar="الرؤية" data-en="Vision">الرؤية</h3>
+            <p
+              data-ar="تحقيق الريادة بين شركات المملكة المتخصصة في تطوير مواقع التراث الثقافي والمباني الحديثة، عبر بناء شراكات استراتيجية محلية وعالمية تعزز النمو المستدام وتضمن النجاح والتميز"
+              data-en="Achieving leadership among Saudi companies specializing in cultural heritage site development and modern buildings by building strategic local and global partnerships that foster sustainable growth and ensure success and excellence"
+            >
+              تحقيق الريادة بين شركات المملكة المتخصصة في تطوير مواقع التراث
+              الثقافي والمباني الحديثة، عبر بناء شراكات استراتيجية محلية وعالمية
+              تعزز النمو المستدام وتضمن النجاح والتميز
+            </p>
+          </div>
+          <div class="vm-card fade-in">
+            <h3 data-ar="الرسالة" data-en="Mission">الرسالة</h3>
+            <p
+              data-ar="نسعى لبناء شراكة استثنائية مع عملائنا الكرام عبر حلول مبتكرة ترتكز على الجودة والتميز في كل شراكة"
+              data-en="We strive to build exceptional partnerships with our valued clients through innovative solutions grounded in quality and excellence in every collaboration"
+            >
+              نسعى لبناء شراكة استثنائية مع عملائنا الكرام عبر حلول مبتكرة ترتكز
+              على الجودة والتميز في كل شراكة
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title" data-ar="خدماتنا" data-en="Our Services">
+          خدماتنا
+        </h2>
+        <p
+          class="section-subtitle"
+          data-ar="نقدم مجموعة متكاملة من الخدمات المتخصصة"
+          data-en="We provide a comprehensive range of specialized services"
+        >
+          نقدم مجموعة متكاملة من الخدمات المتخصصة
+        </p>
+        <div class="services-grid">
+          <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+            <h4
+              data-ar="الهندسة المدنية والبناء"
+              data-en="Civil Engineering & Construction"
+            >
+              الهندسة المدنية والبناء
+            </h4>
+            <p
+              data-ar="خدمات هندسية ودعم إنشائي متكاملة تشمل الهدم والبناء والإصلاح وأعمال MEP"
+              data-en="Complete engineering and construction support services including demolition, building, repair and MEP works"
+            >
+              خدمات هندسية ودعم إنشائي متكاملة تشمل الهدم والبناء والإصلاح
+              وأعمال MEP
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-monument"></i></div>
+            <h4 data-ar="التراث العمراني" data-en="Urban Heritage">
+              التراث العمراني
+            </h4>
+            <p
+              data-ar="تقنيات حفظ متقدمة لتمديد العمر الافتراضي وتعزيز متانة التراث المعماري"
+              data-en="Advanced preservation techniques to extend lifespan and enhance resilience of architectural heritage"
+            >
+              تقنيات حفظ متقدمة لتمديد العمر الافتراضي وتعزيز متانة التراث
+              المعماري
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-building"></i></div>
+            <h4
+              data-ar="الهندسة المعمارية والتصميم"
+              data-en="Architecture & Design"
+            >
+              الهندسة المعمارية والتصميم
+            </h4>
+            <p
+              data-ar="خدمات شاملة من التصميم المفاهيمي إلى التفاصيل التنفيذية والتوثيق الهندسي"
+              data-en="Comprehensive services from concept design to construction documentation and detailing"
+            >
+              خدمات شاملة من التصميم المفاهيمي إلى التفاصيل التنفيذية والتوثيق
+              الهندسي
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-search-location"></i>
+            </div>
+            <h4
+              data-ar="المسح الأثري والتنقيب"
+              data-en="Archaeological Survey & Excavation"
+            >
+              المسح الأثري والتنقيب
+            </h4>
+            <p
+              data-ar="توثيق علمي وبصري شامل باستخدام تقنيات متقدمة والتصوير ثلاثي الأبعاد"
+              data-en="Comprehensive scientific and visual documentation using advanced technologies and 3D imaging"
+            >
+              توثيق علمي وبصري شامل باستخدام تقنيات متقدمة والتصوير ثلاثي
+              الأبعاد
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon"><i class="fas fa-flask"></i></div>
+            <h4 data-ar="البحث العلمي" data-en="Scientific Research">
+              البحث العلمي
+            </h4>
+            <p
+              data-ar="دراسات وأبحاث متخصصة في مجال الآثار والتراث الوطني"
+              data-en="Specialized studies and research in antiquities and national heritage"
+            >
+              دراسات وأبحاث متخصصة في مجال الآثار والتراث الوطني
+            </p>
+          </div>
+          <div class="service-card fade-in">
+            <div class="service-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h4 data-ar="الاستشارات التراثية" data-en="Heritage Consultancy">
+              الاستشارات التراثية
+            </h4>
+            <p
+              data-ar="استشارات متخصصة تشمل التوثيق الهندسي والدراسات الأثرية وتقنيات الحفظ"
+              data-en="Specialized consultancy including engineering documentation, archaeological studies and conservation techniques"
+            >
+              استشارات متخصصة تشمل التوثيق الهندسي والدراسات الأثرية وتقنيات
+              الحفظ
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNESCO Sites -->
+    <section class="unesco">
+      <div class="container unesco-content">
+        <h2
+          class="section-title"
+          style="color: var(--primary-orange)"
+          data-ar="مواقع اليونسكو"
+          data-en="UNESCO Sites"
+        >
+          مواقع اليونسكو
+        </h2>
+        <p
+          class="section-subtitle"
+          style="color: var(--text-light)"
+          data-ar="عملنا على 8 مواقع مسجلة لدى اليونسكو"
+          data-en="We worked on 8 registered UNESCO sites"
+        >
+          عملنا على 8 مواقع مسجلة لدى اليونسكو
+        </p>
+        <div class="unesco-grid">
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Al-Hijr.jpg" alt="الحجر - العلا" />
+              <div class="unesco-overlay">
+                <i class="fas fa-university"></i>
+              </div>
+            </div>
+            <h4 data-ar="الحجر - العلا" data-en="Al-Hijr - AlUla">
+              الحجر - العلا
+            </h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/At-Turaif.jpeg" alt="حي الطريف" />
+              <div class="unesco-overlay">
+                <i class="fas fa-fort-awesome"></i>
+              </div>
+            </div>
+            <h4 data-ar="حي الطريف" data-en="At-Turaif District">حي الطريف</h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Uruq.png" alt="محمية عروق بني معارض" />
+              <div class="unesco-overlay">
+                <i class="fas fa-tree"></i>
+              </div>
+            </div>
+            <h4 data-ar="محمية عروق بني معارض" data-en="Uruq Bani Ma'arid">
+              محمية عروق بني معارض
+            </h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Hima.jpg" alt="منطقة هيما الثقافية" />
+              <div class="unesco-overlay">
+                <i class="fas fa-palette"></i>
+              </div>
+            </div>
+            <h4 data-ar="منطقة هيما الثقافية" data-en="Hima Cultural Area">
+              منطقة هيما الثقافية
+            </h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Al-Ahsa.jpg" alt="واحة الأحساء" />
+              <div class="unesco-overlay">
+                <i class="fas fa-seedling"></i>
+              </div>
+            </div>
+            <h4 data-ar="واحة الأحساء" data-en="Al-Ahsa Oasis">واحة الأحساء</h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Al-Faw.png" alt="منطقة الفاو الأثرية" />
+              <div class="unesco-overlay">
+                <i class="fas fa-mountain"></i>
+              </div>
+            </div>
+            <h4
+              data-ar="منطقة الفاو الأثرية"
+              data-en="Al-Faw Archaeological Site"
+            >
+              منطقة الفاو الأثرية
+            </h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Hail.png" alt="الفن الصخري في حائل" />
+              <div class="unesco-overlay">
+                <i class="fas fa-image"></i>
+              </div>
+            </div>
+            <h4 data-ar="الفن الصخري في حائل" data-en="Rock Art in Hail">
+              الفن الصخري في حائل
+            </h4>
+          </div>
+          <div class="unesco-card fade-in">
+            <div class="unesco-image">
+              <img src="./asset/images/Historic.webp" alt="جدة التاريخية" />
+              <div class="unesco-overlay">
+                <i class="fas fa-mosque"></i>
+              </div>
+            </div>
+            <h4 data-ar="جدة التاريخية" data-en="Historic Jeddah">
+              جدة التاريخية
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <h2 class="section-title" data-ar="مشاريعنا" data-en="Our Projects">
+          مشاريعنا
+        </h2>
+
+        <p
+          class="section-subtitle"
+          data-ar="أكثر من 130 مشروعاً في جميع أنحاء المملكة"
+          data-en="Over 130 projects across the Kingdom"
+        >
+          أكثر من 130 مشروعاً في جميع أنحاء المملكة
+        </p>
+
+        <!-- Categories -->
+        <div class="project-categories">
+          <button class="category-btn active" onclick="filterProjects('all')">
+            الكل
+          </button>
+          <button class="category-btn" onclick="filterProjects('construction')">
+            إنشاءات
+          </button>
+          <button class="category-btn" onclick="filterProjects('heritage')">
+            تراث عمراني
+          </button>
+          <button class="category-btn" onclick="filterProjects('archaeology')">
+            آثار
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project 1 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/ministry2.png"
+                alt="Ministry of Interior"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-building"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مبنى وزارة الداخلية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الرياض
+              </p>
+              <p>أعمال إنشاء وتشطيب متكاملة</p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/masmak.jpg" alt="Masmak Palace" />
+              <div class="image-overlay">
+                <i class="fas fa-fort-awesome"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قصر المصمك</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الرياض
+              </p>
+              <p>ترميم وتأهيل معلم تاريخي</p>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/hosh.jpg" alt="Hosh Al-Ra'i" />
+              <div class="image-overlay">
+                <i class="fas fa-home"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>حوش الراعي</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p>ترميم وتأهيل شامل</p>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card archaeology fade-in">
+            <div class="project-image">
+              <img src="./asset/images/Al-Faw.png" alt="Al-Faw Site" />
+              <div class="image-overlay">
+                <i class="fas fa-mountain"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>موقع الفاو الأثري</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الرياض
+              </p>
+              <p>بحث علمي ومسح أثري</p>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img src="./asset/images/khafji.png" alt="Khafji Port" />
+              <div class="image-overlay">
+                <i class="fas fa-truck-loading"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>منفذ الخفجي الجمركي</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الخفجي
+              </p>
+              <p>تطوير وتحسين شامل</p>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/hejaz.png" alt="Hejaz Railway" />
+              <div class="image-overlay">
+                <i class="fas fa-train"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>سكة حديد الحجاز</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p>ترميم وتأهيل متحف تاريخي</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team" id="team">
+      <div class="container">
+        <h2 class="section-title" data-ar="فريقنا" data-en="Our Team">
+          فريقنا
+        </h2>
+        <p
+          class="section-subtitle"
+          data-ar="فريق من 700 عضو بخبرات واسعة ومتنوعة"
+          data-en="A team of 700 members with vast and diverse expertise"
+        >
+          فريق من 700 عضو بخبرات واسعة ومتنوعة
+        </p>
+        <div class="team-grid">
+          <div class="team-member fade-in">
+            <div class="team-avatar">ع</div>
+            <h4 data-ar="أ. عقاب العتيبي" data-en="Mr. Aqab Al Otaibi">
+              أ. عقاب العتيبي
+            </h4>
+            <p data-ar="المدير التنفيذي" data-en="Chief Executive Officer">
+              المدير التنفيذي
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">م</div>
+            <h4 data-ar="د. مي الركيان" data-en="Dr. Mai Al-Rakyan">
+              د. مي الركيان
+            </h4>
+            <p data-ar="مدير إدارة الآثار" data-en="Director of Archaeology">
+              مدير إدارة الآثار
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">ل</div>
+            <h4 data-ar="م. لبنى الشعلان" data-en="Eng. Lubna Al-Shaalan">
+              م. لبنى الشعلان
+            </h4>
+            <p data-ar="مدير إدارة الشراكات" data-en="Director of Partnerships">
+              مدير إدارة الشراكات
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">ط</div>
+            <h4 data-ar="م. طاهر الجندي" data-en="Eng. Taher Al-Jundi">
+              م. طاهر الجندي
+            </h4>
+            <p data-ar="مدير المشاريع" data-en="Projects Director">
+              مدير المشاريع
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">م</div>
+            <h4 data-ar="م. لمياء الحجيلي" data-en="Eng. Lamya Al-Hujaili">
+              م. لمياء الحجيلي
+            </h4>
+            <p
+              data-ar="مدير إدارة تطوير الأعمال"
+              data-en="Business Development Director"
+            >
+              مدير إدارة تطوير الأعمال
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">أ</div>
+            <h4 data-ar="م. أحمد كامل" data-en="Eng. Ahmed Kamel">
+              م. أحمد كامل
+            </h4>
+            <p
+              data-ar="مدير إدارة العمارة والتصميم"
+              data-en="Director of Architecture & Design"
+            >
+              مدير إدارة العمارة والتصميم
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">أ</div>
+            <h4 data-ar="م. أحمد عبدالباسط" data-en="Eng. Ahmed Abdulbasit">
+              م. أحمد عبدالباسط
+            </h4>
+            <p
+              data-ar="مدير الإدارة الهندسية"
+              data-en="Director of Engineering Management"
+            >
+              مدير الإدارة الهندسية
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">س</div>
+            <h4 data-ar="أ. سعد الحارثي" data-en="Mr. Saad Al-Harthy">
+              أ. سعد الحارثي
+            </h4>
+            <p
+              data-ar="مدير إدارة الموارد البشرية"
+              data-en="Director of Human Resources"
+            >
+              مدير إدارة الموارد البشرية
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">د</div>
+            <h4 data-ar="د. مصطفى رسلان" data-en="Dr. Mustafa Raslan">
+              د. مصطفى رسلان
+            </h4>
+            <p
+              data-ar="مدير الإدارة المالية"
+              data-en="Director of Financial Management"
+            >
+              مدير الإدارة المالية
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients">
+      <div class="container">
+        <h2 class="section-title" data-ar="عملاؤنا" data-en="Our Clients">
+          عملاؤنا
+        </h2>
+        <p
+          class="section-subtitle"
+          data-ar="شراكات مع أبرز الجهات الحكومية في المملكة"
+          data-en="Partnerships with leading government entities in the Kingdom"
+        >
+          شراكات مع أبرز الجهات الحكومية في المملكة
+        </p>
+        <div class="clients-grid">
+          <div
+            class="client-card fade-in"
+            data-ar="وزارة الثقافة"
+            data-en="Ministry of Culture"
+          >
+            وزارة الثقافة
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="وزارة السياحة"
+            data-en="Ministry of Tourism"
+          >
+            وزارة السياحة
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="هيئة تطوير بوابة الدرعية"
+            data-en="Diriyah Gate Development Authority"
+          >
+            هيئة تطوير بوابة الدرعية
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="الهيئة الملكية لمحافظة العلا"
+            data-en="Royal Commission for AlUla"
+          >
+            الهيئة الملكية لمحافظة العلا
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="وزارة الموارد البشرية والتنمية الاجتماعية"
+            data-en="Ministry of Human Resources & Social Development"
+          >
+            وزارة الموارد البشرية والتنمية الاجتماعية
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="الشركة السعودية لتحلية المياه المالحة"
+            data-en="SWCC"
+          >
+            الشركة السعودية لتحلية المياه المالحة
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="وزارة الداخلية"
+            data-en="Ministry of Interior"
+          >
+            وزارة الداخلية
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="وزارة المالية"
+            data-en="Ministry of Finance"
+          >
+            وزارة المالية
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="الجمارك السعودية"
+            data-en="Saudi Customs"
+          >
+            الجمارك السعودية
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="نادي ضباط القوات المسلحة"
+            data-en="Armed Forces Officers Club"
+          >
+            نادي ضباط القوات المسلحة
+          </div>
+          <div
+            class="client-card fade-in"
+            data-ar="قوات أمن المنشآت"
+            data-en="Facilities Security Forces"
+          >
+            قوات أمن المنشآت
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2
+          class="section-title"
+          style="color: var(--primary-orange)"
+          data-ar="تواصل معنا"
+          data-en="Contact Us"
+        >
+          تواصل معنا
+        </h2>
+        <div class="contact-grid">
+          <div class="contact-item fade-in">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <h4 data-ar="البريد الإلكتروني" data-en="Email">
+              البريد الإلكتروني
+            </h4>
+            <a href="mailto:info@menjaz.com">info@menjaz.com</a>
+          </div>
+          <div class="contact-item fade-in">
+            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <h4 data-ar="الهاتف" data-en="Phone">الهاتف</h4>
+            <a href="tel:+966554560093">+966 55 456 0093</a>
+          </div>
+          <div class="contact-item fade-in">
+            <div class="contact-icon"><i class="fas fa-globe"></i></div>
+            <h4 data-ar="الموقع الإلكتروني" data-en="Website">
+              الموقع الإلكتروني
+            </h4>
+            <a href="http://www.menjaz.com" target="_blank">www.menjaz.com</a>
+          </div>
+          <div class="contact-item fade-in">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h4 data-ar="العنوان" data-en="Address">العنوان</h4>
+            <p
+              data-ar="الرياض، المملكة العربية السعودية"
+              data-en="Riyadh, Saudi Arabia"
+            >
+              الرياض، المملكة العربية السعودية
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p
+          data-ar="©️ 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة."
+          data-en="©️ 2026 Majal Al Enjaz For Advanced Works. All rights reserved."
+        >
+          ©️ 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      let currentLang = "ar";
+
+      // Toggle Language
+      function toggleLanguage() {
+        currentLang = currentLang === "ar" ? "en" : "ar";
+        const body = document.body;
+        const langBtn = document.getElementById("langBtn");
+        const logoImg = document.getElementById("logoImg");
+
+        if (currentLang === "en") {
+          body.setAttribute("dir", "ltr");
+          body.setAttribute("lang", "en");
+          langBtn.textContent = "العربية";
+          logoImg.src = "./asset/images/logo3.png";
+        } else {
+          body.setAttribute("dir", "rtl");
+          body.setAttribute("lang", "ar");
+          langBtn.textContent = "English";
+          logoImg.src = "./asset/images/logo3.png";
+        }
+
+        // Update all text elements
+        document.querySelectorAll("[data-ar][data-en]").forEach((element) => {
+          if (currentLang === "en") {
+            element.textContent = element.getAttribute("data-en");
+          } else {
+            element.textContent = element.getAttribute("data-ar");
+          }
+        });
+      }
+
+      // Mobile Menu Toggle
+      function toggleMobileMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+
+      // Filter Projects
+      function filterProjects(category) {
+        const buttons = document.querySelectorAll(".category-btn");
+        const projects = document.querySelectorAll(".project-card");
+
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        projects.forEach((project) => {
+          if (category === "all" || project.classList.contains(category)) {
+            project.style.display = "block";
+          } else {
+            project.style.display = "none";
+          }
+        });
+      }
+
+      // Scroll to Top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Show/Hide Scroll to Top Button
+      window.addEventListener("scroll", () => {
+        const scrollTop = document.getElementById("scrollTop");
+        if (window.pageYOffset > 300) {
+          scrollTop.classList.add("show");
+        } else {
+          scrollTop.classList.remove("show");
+        }
+      });
+
+      // Smooth Scroll for Navigation Links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            // Close mobile menu if open
+            document.getElementById("navLinks").classList.remove("active");
+          }
+        });
+      });
+
+      // Intersection Observer for Fade-in Animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        },
+      );
+
+      document.querySelectorAll(".fade-in").forEach((element) => {
+        element.style.opacity = "0";
+        element.style.transform = "translateY(30px)";
+        element.style.transition = "all 0.8s ease-out";
+        observer.observe(element);
+      });
+    </script>
+  </body>
+</html>
