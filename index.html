@@ -170,7 +170,7 @@
 
       .hero h1 {
         font-size: 3.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 3rem;
         background: linear-gradient(
           135deg,
           var(--primary-orange),
@@ -181,15 +181,6 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         font-weight: 900;
-      }
-
-      .hero p {
-        font-size: 1.5rem;
-        margin-bottom: 3rem;
-        max-width: 900px;
-        margin-left: auto;
-        margin-right: auto;
-        font-weight: 300;
       }
 
       .stats {
@@ -410,13 +401,13 @@
       .project-categories {
         display: flex;
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1rem;
         margin-bottom: 4rem;
         flex-wrap: wrap;
       }
 
       .category-btn {
-        padding: 1rem 2rem;
+        padding: 0.8rem 1.5rem;
         background: white;
         border: 2px solid var(--primary-orange);
         color: var(--dark-bg);
@@ -424,7 +415,8 @@
         border-radius: 30px;
         transition: all 0.3s;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin: 0.3rem;
       }
 
       .category-btn:hover,
@@ -472,9 +464,8 @@
         transition: transform 0.7s ease;
       }
 
-      .image-overlay i {
-        font-size: 3.5rem;
-        opacity: 0.9;
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
       }
 
       .project-content {
@@ -499,6 +490,13 @@
 
       .project-location i {
         font-size: 1.1rem;
+      }
+
+      .project-name {
+        font-size: 0.95rem;
+        color: var(--accent-brown);
+        margin-top: 0.5rem;
+        font-weight: 600;
       }
 
       /* UNESCO Sites */
@@ -618,37 +616,6 @@
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .unesco-grid {
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-        }
-
-        .unesco-image {
-          height: 250px;
-        }
-
-        .unesco-overlay i {
-          font-size: 3.5rem;
-        }
-
-        .unesco-card h4 {
-          font-size: 1.15rem;
-          padding: 1.5rem 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .unesco-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .unesco-image {
-          height: 220px;
-        }
-      }
-
       /* Team */
       .team {
         padding: 100px 0;
@@ -748,38 +715,76 @@
 
       .clients-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
         margin-top: 4rem;
       }
 
       .client-card {
         background: white;
-        padding: 2.5rem;
+        padding: 2rem;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 140px;
-        font-weight: 700;
-        color: var(--dark-bg);
+        min-height: 180px;
         transition: all 0.3s;
-        font-size: 1.1rem;
         border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .client-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(230, 126, 80, 0.05),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .client-card:hover::before {
+        left: 100%;
       }
 
       .client-card:hover {
-        background: linear-gradient(
-          135deg,
-          var(--primary-orange),
-          var(--primary-red)
-        );
-        color: white;
         transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.3);
-        border-color: transparent;
+        box-shadow: 0 15px 40px rgba(230, 126, 80, 0.2);
+        border-color: var(--primary-orange);
+      }
+
+      .client-logo {
+        width: 100%;
+        height: 120px;
+        object-fit: contain;
+        margin-bottom: 1rem;
+        transition: all 0.3s;
+        filter: grayscale(0);
+      }
+
+      .client-card:hover .client-logo {
+        transform: scale(1.05);
+      }
+
+      .client-name {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--dark-bg);
+        margin-top: 0.5rem;
+      }
+
+      .client-card:hover .client-name {
+        color: var(--primary-orange);
       }
 
       /* Contact */
@@ -836,6 +841,8 @@
         text-decoration: none;
         transition: all 0.3s;
         font-size: 1.1rem;
+        direction: ltr;
+        display: inline-block;
       }
 
       .contact-item a:hover {
@@ -896,16 +903,59 @@
           font-size: 2.2rem;
         }
 
-        .hero p {
-          font-size: 1.2rem;
-        }
-
         .stats {
           grid-template-columns: 1fr;
         }
 
         .logo-container {
           height: 80px;
+        }
+
+        .unesco-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .unesco-image {
+          height: 250px;
+        }
+
+        .unesco-overlay i {
+          font-size: 3.5rem;
+        }
+
+        .unesco-card h4 {
+          font-size: 1.15rem;
+          padding: 1.5rem 1rem;
+        }
+
+        .project-categories {
+          gap: 0.5rem;
+        }
+
+        .category-btn {
+          padding: 0.7rem 1.2rem;
+          font-size: 0.85rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .unesco-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .unesco-image {
+          height: 220px;
+        }
+
+        .project-categories {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .category-btn {
+          width: 100%;
+          max-width: 250px;
         }
       }
 
@@ -980,7 +1030,6 @@
 
           <button
             class="mobile-menu-btn"
-            class="container"
             onclick="toggleMobileMenu()"
           >
             <i class="fas fa-bars"></i>
@@ -1032,13 +1081,6 @@
         >
           مجال الإنجاز للأعمال المتقدمة
         </h1>
-        <p
-          class="fade-in"
-          data-ar="نبني هندسة تجسّد التقدم، ونرمّم تراثاً عريقاً"
-          data-en="Building engineering that embodies progress, restoring heritage with excellence"
-        >
-          نبني هندسة تجسّد التقدم، ونرمّم تراثاً عريقاً
-        </p>
         <div class="stats">
           <div class="stat-item fade-in">
             <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
@@ -1285,13 +1327,13 @@
           </div>
           <div class="unesco-card fade-in">
             <div class="unesco-image">
-              <img src="./asset/images/Hima.jpg" alt="منطقة هيما الثقافية" />
+              <img src="./asset/images/Hima.jpg" alt="منطقة حمى الثقافية" />
               <div class="unesco-overlay">
                 <i class="fas fa-palette"></i>
               </div>
             </div>
-            <h4 data-ar="منطقة هيما الثقافية" data-en="Hima Cultural Area">
-              منطقة هيما الثقافية
+            <h4 data-ar="منطقة حمى الثقافية" data-en="Hima Cultural Area">
+              منطقة حمى الثقافية
             </h4>
           </div>
           <div class="unesco-card fade-in">
@@ -1360,28 +1402,41 @@
 
         <!-- Categories -->
         <div class="project-categories">
-          <button class="category-btn active" onclick="filterProjects('all')">
+          <button class="category-btn active" onclick="filterProjects('all')" data-ar="الكل" data-en="All">
             الكل
           </button>
-          <button class="category-btn" onclick="filterProjects('construction')">
-            إنشاءات
+          <button class="category-btn" onclick="filterProjects('construction')" data-ar="إنشاءات وهندسة معمارية" data-en="Construction & Architecture">
+            إنشاءات وهندسة معمارية
           </button>
-          <button class="category-btn" onclick="filterProjects('heritage')">
+          <button class="category-btn" onclick="filterProjects('heritage')" data-ar="تراث عمراني" data-en="Urban Heritage">
             تراث عمراني
           </button>
-          <button class="category-btn" onclick="filterProjects('archaeology')">
-            آثار
+          <button class="category-btn" onclick="filterProjects('reinforcement')" data-ar="تدعيم إنشائي" data-en="Structural Reinforcement">
+            تدعيم إنشائي
+          </button>
+          <button class="category-btn" onclick="filterProjects('archaeology')" data-ar="تنقيب أثري" data-en="Archaeological Excavation">
+            تنقيب أثري
+          </button>
+          <button class="category-btn" onclick="filterProjects('fencing')" data-ar="تسوير وحماية" data-en="Fencing & Protection">
+            تسوير وحماية
+          </button>
+          <button class="category-btn" onclick="filterProjects('visual')" data-ar="إزالة تشوهات بصرية" data-en="Visual Improvement">
+            إزالة تشوهات بصرية
+          </button>
+          <button class="category-btn" onclick="filterProjects('research')" data-ar="أبحاث علمية" data-en="Scientific Research">
+            أبحاث علمية
           </button>
         </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid" id="projectsGrid">
-          <!-- Project 1 -->
+          <!-- ========== مشاريع الإنشاءات والهندسة المعمارية ========== -->
+          <!-- مشروع 1 -->
           <div class="project-card construction fade-in">
             <div class="project-image">
               <img
                 src="./asset/images/ministry2.png"
-                alt="Ministry of Interior"
+                alt="مبنى وزارة الداخلية"
               />
               <div class="image-overlay">
                 <i class="fas fa-building"></i>
@@ -1392,14 +1447,155 @@
               <p class="project-location">
                 <i class="fas fa-map-marker-alt"></i> الرياض
               </p>
-              <p>أعمال إنشاء وتشطيب متكاملة</p>
+              <p class="project-name">أعمال إنشاء وتشطيب مبنى وزارة الداخلية</p>
             </div>
           </div>
 
-          <!-- Project 2 -->
+          <!-- مشروع 2 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/HR-building.png"
+                alt="مبنى الموارد البشرية"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مبنى الموارد البشرية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الرياض
+              </p>
+              <p class="project-name">أعمال إنشاء وتشطيب مبنى الموارد البشرية والتنمية الاجتماعية</p>
+            </div>
+          </div>
+
+          <!-- مشروع 3 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/khafji.png"
+                alt="منفذ الخفجي"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-truck-loading"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>منفذ الخفجي</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الخفجي
+              </p>
+              <p class="project-name">أعمال التطوير والتحسين بميناء الخفجي</p>
+            </div>
+          </div>
+
+          <!-- مشروع 4 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/villas.png"
+                alt="مجمع فلل الشعبية"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-home"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مجمع فلل الشعبية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الشعبية
+              </p>
+              <p class="project-name">إعادة تأهيل وترميم مجمع فلل في الشعبية</p>
+            </div>
+          </div>
+
+          <!-- مشروع 5 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/camps.png"
+                alt="مخيمات عروق بني معارض"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-campground"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مخيمات عروق بني معارض</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> محمية عروق بني معارض
+              </p>
+              <p class="project-name">إنشاء مخيمات بيئية في محمية عروق بني معارض</p>
+            </div>
+          </div>
+
+          <!-- مشروع 6 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/nanofiltration.png"
+                alt="محطة المرشحات النانوية"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-filter"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>محطة المرشحات النانوية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مكة المكرمة
+              </p>
+              <p class="project-name">إنشاء محطة المرشحات النانوية لمحطات تنقية المياه في الشعبية</p>
+            </div>
+          </div>
+
+          <!-- مشروع 7 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/security-buildings.png"
+                alt="مباني أمن المنشآت"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مباني أمن المنشآت</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> محطات التحلية
+              </p>
+              <p class="project-name">إنشاء مباني إدارية ومقرات لقوات أمن المنشآت بعدد 4 محطات</p>
+            </div>
+          </div>
+
+          <!-- مشروع 8 -->
+          <div class="project-card construction fade-in">
+            <div class="project-image">
+              <img
+                src="./asset/images/rehabilitation-center.png"
+                alt="مركز التأهيل الاجتماعي"
+              />
+              <div class="image-overlay">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مركز التأهيل الاجتماعي</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> تيماء
+              </p>
+              <p class="project-name">إنشاء مركز التأهيل الاجتماعي بتيماء</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع التراث العمراني ========== -->
+          <!-- مشروع 9 -->
           <div class="project-card heritage fade-in">
             <div class="project-image">
-              <img src="./asset/images/masmak.jpg" alt="Masmak Palace" />
+              <img src="./asset/images/masmak.jpg" alt="قصر المصمك" />
               <div class="image-overlay">
                 <i class="fas fa-fort-awesome"></i>
               </div>
@@ -1409,14 +1605,14 @@
               <p class="project-location">
                 <i class="fas fa-map-marker-alt"></i> الرياض
               </p>
-              <p>ترميم وتأهيل معلم تاريخي</p>
+              <p class="project-name">ترميم وتأهيل قصر المصمك</p>
             </div>
           </div>
 
-          <!-- Project 3 -->
+          <!-- مشروع 10 -->
           <div class="project-card heritage fade-in">
             <div class="project-image">
-              <img src="./asset/images/hosh.jpg" alt="Hosh Al-Ra'i" />
+              <img src="./asset/images/hosh.jpg" alt="حوش الراعي" />
               <div class="image-overlay">
                 <i class="fas fa-home"></i>
               </div>
@@ -1426,14 +1622,220 @@
               <p class="project-location">
                 <i class="fas fa-map-marker-alt"></i> المدينة المنورة
               </p>
-              <p>ترميم وتأهيل شامل</p>
+              <p class="project-name">ترميم وتأهيل حوش الراعي</p>
             </div>
           </div>
 
-          <!-- Project 4 -->
+          <!-- مشروع 11 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/hejaz.png" alt="متحف سكة حديد الحجاز" />
+              <div class="image-overlay">
+                <i class="fas fa-train"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>متحف سكة حديد الحجاز</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p class="project-name">ترميم وتأهيل وصيانة متحف المدينة المنورة (سكة حديد الحجاز)</p>
+            </div>
+          </div>
+
+          <!-- مشروع 12 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/al-dhahir.png" alt="مقصر الظاهر" />
+              <div class="image-overlay">
+                <i class="fas fa-landmark"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مقصر الظاهر</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع أثري
+              </p>
+              <p class="project-name">أعمال الترميم والتأهيل في مقصر الظاهر</p>
+            </div>
+          </div>
+
+          <!-- مشروع 13 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/mosques.png" alt="المساجد التاريخية" />
+              <div class="image-overlay">
+                <i class="fas fa-mosque"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>المساجد التاريخية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مواقع مختلفة
+              </p>
+              <p class="project-name">إعادة تأهيل وترميم مسجد الأعظم، مسجد الحبيش، مسجد النبي سليمان</p>
+            </div>
+          </div>
+
+          <!-- مشروع 14 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/house.png" alt="بيت حسن البابطين" />
+              <div class="image-overlay">
+                <i class="fas fa-home"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>بيت حسن البابطين</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> ينبع
+              </p>
+              <p class="project-name">ترميم وتأهيل بيت حسن البابطين</p>
+            </div>
+          </div>
+
+          <!-- مشروع 15 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/al-khubara.png" alt="قرية الخبراء" />
+              <div class="image-overlay">
+                <i class="fas fa-village"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قرية الخبراء</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الرياض
+              </p>
+              <p class="project-name">تهيئة وتأهيل المكونات الأساسية للبيئة العمرانية لقرية الخبراء</p>
+            </div>
+          </div>
+
+          <!-- مشروع 16 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/qalaat.png" alt="قلعتي العيون وقباء" />
+              <div class="image-overlay">
+                <i class="fas fa-fort-awesome"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قلعتي العيون وقباء</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p class="project-name">ترميم وتأهيل قلعة العيون وقلعة قباء</p>
+            </div>
+          </div>
+
+          <!-- مشروع 17 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/urwah-palace.png" alt="قصر عروة" />
+              <div class="image-overlay">
+                <i class="fas fa-landmark"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قصر عروة</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p class="project-name">ترميم وتأهيل قصر عروة</p>
+            </div>
+          </div>
+
+          <!-- مشروع 18 -->
+          <div class="project-card heritage fade-in">
+            <div class="project-image">
+              <img src="./asset/images/bajiri-entrance.png" alt="مطل البجيري" />
+              <div class="image-overlay">
+                <i class="fas fa-monument"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مطل البجيري</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع تراثي
+              </p>
+              <p class="project-name">ترميم وتأهيل مدخل مطل البجيري</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع التدعيم الإنشائي ========== -->
+          <!-- مشروع 19 -->
+          <div class="project-card reinforcement fade-in">
+            <div class="project-image">
+              <img src="./asset/images/tower-reinforcement.png" alt="برج القبر" />
+              <div class="image-overlay">
+                <i class="fas fa-hard-hat"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>برج القبر رقم 04</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع تراثي
+              </p>
+              <p class="project-name">أعمال التدعيم لبرج القبر رقم 04</p>
+            </div>
+          </div>
+
+          <!-- مشروع 20 -->
+          <div class="project-card reinforcement fade-in">
+            <div class="project-image">
+              <img src="./asset/images/khazzam-palace.png" alt="قصر خزام" />
+              <div class="image-overlay">
+                <i class="fas fa-fort-awesome"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قصر خزام</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> جدة
+              </p>
+              <p class="project-name">التدعيم الإنشائي لقصر خزام</p>
+            </div>
+          </div>
+
+          <!-- مشروع 21 -->
+          <div class="project-card reinforcement fade-in">
+            <div class="project-image">
+              <img src="./asset/images/hosh-buildings.png" alt="مباني حوش الراعي" />
+              <div class="image-overlay">
+                <i class="fas fa-home"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>مباني حوش الراعي</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+              </p>
+              <p class="project-name">أعمال التدعيم للمباني في حوش الراعي</p>
+            </div>
+          </div>
+
+          <!-- مشروع 22 -->
+          <div class="project-card reinforcement fade-in">
+            <div class="project-image">
+              <img src="./asset/images/al-katib-house.png" alt="بيت الكاتب" />
+              <div class="image-overlay">
+                <i class="fas fa-landmark"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>بيت الكاتب</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع تراثي
+              </p>
+              <p class="project-name">التدعيم الإنشائي لبيت الكاتب</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع التنقيب والمسح الأثري ========== -->
+          <!-- مشروع 23 -->
           <div class="project-card archaeology fade-in">
             <div class="project-image">
-              <img src="./asset/images/Al-Faw.png" alt="Al-Faw Site" />
+              <img src="./asset/images/Al-Faw.png" alt="موقع الفاو" />
               <div class="image-overlay">
                 <i class="fas fa-mountain"></i>
               </div>
@@ -1441,33 +1843,85 @@
             <div class="project-content">
               <h4>موقع الفاو الأثري</h4>
               <p class="project-location">
-                <i class="fas fa-map-marker-alt"></i> الرياض
+                <i class="fas fa-map-marker-alt"></i> وادي الدواسر
               </p>
-              <p>بحث علمي ومسح أثري</p>
+              <p class="project-name">أعمال التنقيب الأثري في موقع الفاو</p>
             </div>
           </div>
 
-          <!-- Project 5 -->
-          <div class="project-card construction fade-in">
+          <!-- مشروع 24 -->
+          <div class="project-card archaeology fade-in">
             <div class="project-image">
-              <img src="./asset/images/khafji.png" alt="Khafji Port" />
+              <img src="./asset/images/tayma.png" alt="موقع تيماء" />
               <div class="image-overlay">
-                <i class="fas fa-truck-loading"></i>
+                <i class="fas fa-archway"></i>
               </div>
             </div>
             <div class="project-content">
-              <h4>منفذ الخفجي الجمركي</h4>
+              <h4>موقع تيماء الأثري</h4>
               <p class="project-location">
-                <i class="fas fa-map-marker-alt"></i> الخفجي
+                <i class="fas fa-map-marker-alt"></i> تيماء
               </p>
-              <p>تطوير وتحسين شامل</p>
+              <p class="project-name">أعمال التنقيب الأثري في موقع تيماء</p>
             </div>
           </div>
 
-          <!-- Project 6 -->
-          <div class="project-card heritage fade-in">
+          <!-- مشروع 25 -->
+          <div class="project-card archaeology fade-in">
             <div class="project-image">
-              <img src="./asset/images/hejaz.png" alt="Hejaz Railway" />
+              <img src="./asset/images/al-akhdood.png" alt="موقع الأخدود" />
+              <div class="image-overlay">
+                <i class="fas fa-excavation"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>موقع الأخدود</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> نجران
+              </p>
+              <p class="project-name">التنقيب الأثري في موقع الأخدود الأثري في حِمى</p>
+            </div>
+          </div>
+
+          <!-- مشروع 26 -->
+          <div class="project-card archaeology fade-in">
+            <div class="project-image">
+              <img src="./asset/images/darin-palace.png" alt="قصر الفيهاني" />
+              <div class="image-overlay">
+                <i class="fas fa-landmark"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قصر الفيهاني</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> دارين
+              </p>
+              <p class="project-name">أعمال التنقيب الأثري في قصر محمد بن عبدالوهاب الفيهاني</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع التسوير والحماية ========== -->
+          <!-- مشروع 27 -->
+          <div class="project-card fencing fade-in">
+            <div class="project-image">
+              <img src="./asset/images/okaz-fence.png" alt="سوق عكاظ" />
+              <div class="image-overlay">
+                <i class="fas fa-fence"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>سوق عكاظ</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> الطائف
+              </p>
+              <p class="project-name">بوابات وأسوار سوق عكاظ</p>
+            </div>
+          </div>
+
+          <!-- مشروع 28 -->
+          <div class="project-card fencing fade-in">
+            <div class="project-image">
+              <img src="./asset/images/hejaz-fence.png" alt="سكة حديد الحجاز" />
               <div class="image-overlay">
                 <i class="fas fa-train"></i>
               </div>
@@ -1475,11 +1929,133 @@
             <div class="project-content">
               <h4>سكة حديد الحجاز</h4>
               <p class="project-location">
-                <i class="fas fa-map-marker-alt"></i> المدينة المنورة
+                <i class="fas fa-map-marker-alt"></i> مواقع مختلفة
               </p>
-              <p>ترميم وتأهيل متحف تاريخي</p>
+              <p class="project-name">تسوير باللافتات لتحف سكة حديد الحجاز</p>
             </div>
           </div>
+
+          <!-- مشروع 29 -->
+          <div class="project-card fencing fade-in">
+            <div class="project-image">
+              <img src="./asset/images/awareness-signs.png" alt="لوحات التوعية" />
+              <div class="image-overlay">
+                <i class="fas fa-info-circle"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>لوحات التوعية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مواقع أثرية وتراثية
+              </p>
+              <p class="project-name">أعمال الصيانة والتسوير، ولوحات التوعية على المواقع الأثرية والتراثية</p>
+            </div>
+          </div>
+
+          <!-- مشروع 30 -->
+          <div class="project-card fencing fade-in">
+            <div class="project-image">
+              <img src="./asset/images/historical-signs.png" alt="لوحات تعريفية" />
+              <div class="image-overlay">
+                <i class="fas fa-map-signs"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>لوحات تعريفية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مواقع تاريخية
+              </p>
+              <p class="project-name">اللوحات التعريفية للمواقع التاريخية والمشاعر المقدسة</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع إزالة التشوهات البصرية ========== -->
+          <!-- مشروع 31 -->
+          <div class="project-card visual fade-in">
+            <div class="project-image">
+              <img src="./asset/images/visual-improvement.png" alt="إزالة التشوهات" />
+              <div class="image-overlay">
+                <i class="fas fa-eye"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>إزالة التشوهات البصرية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مواقع أثرية
+              </p>
+              <p class="project-name">إزالة التشوهات البصرية لموقع أثري</p>
+            </div>
+          </div>
+
+          <!-- ========== مشاريع الأبحاث العلمية ========== -->
+          <!-- مشروع 32 -->
+          <div class="project-card research fade-in">
+            <div class="project-image">
+              <img src="./asset/images/al-naqou.png" alt="موقع النقاو" />
+              <div class="image-overlay">
+                <i class="fas fa-flask"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>موقع النقاو</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع أثري
+              </p>
+              <p class="project-name">مشروع البحث العلمي في موقع النقاو</p>
+            </div>
+          </div>
+
+          <!-- مشروع 33 -->
+          <div class="project-card research fade-in">
+            <div class="project-image">
+              <img src="./asset/images/archaeological-survey.png" alt="المسح الأثري" />
+              <div class="image-overlay">
+                <i class="fas fa-search-location"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>المسح الأثري</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مناطق مختلفة
+              </p>
+              <p class="project-name">مشاريع المسح الأثري - الرادار المخترق للأرض</p>
+            </div>
+          </div>
+
+          <!-- مشروع 34 -->
+          <div class="project-card research fade-in">
+            <div class="project-image">
+              <img src="./asset/images/heritage-documentation.png" alt="توثيق المواقع" />
+              <div class="image-overlay">
+                <i class="fas fa-book"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>توثيق المواقع الثقافية</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> مناطق مختلفة
+              </p>
+              <p class="project-name">مشروع تحديث وتوثيق 2,500 موقع ثقافي في سجل الآثار</p>
+            </div>
+          </div>
+
+          <!-- مشروع 35 -->
+          <div class="project-card research fade-in">
+            <div class="project-image">
+              <img src="./asset/images/al-ghaw.png" alt="قرية الغاو" />
+              <div class="image-overlay">
+                <i class="fas fa-village"></i>
+              </div>
+            </div>
+            <div class="project-content">
+              <h4>قرية الغاو</h4>
+              <p class="project-location">
+                <i class="fas fa-map-marker-alt"></i> موقع تراثي
+              </p>
+              <p class="project-name">المسح الأثري وتوثيق قرية الغاو</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1508,54 +2084,36 @@
             </p>
           </div>
           <div class="team-member fade-in">
+            <div class="team-avatar">ل</div>
+            <h4 data-ar="م. لمياء الحجيلي" data-en="Eng. Lamya Al-Hujaili">
+              م. لمياء الحجيلي
+            </h4>
+            <p
+              data-ar="مدير إدارة تطوير الأعمال والشراكات"
+              data-en="Director of Business Development and Partnerships"
+            >
+              مدير إدارة تطوير الأعمال والشراكات
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">م</div>
+            <h4 data-ar="د. مصطفى رسلان" data-en="Dr. Mustafa Raslan">
+              د. مصطفى رسلان
+            </h4>
+            <p
+              data-ar="مدير الإدارة المالية"
+              data-en="Director of Financial Management"
+            >
+              مدير الإدارة المالية
+            </p>
+          </div>
+          <div class="team-member fade-in">
             <div class="team-avatar">م</div>
             <h4 data-ar="د. مي الركيان" data-en="Dr. Mai Al-Rakyan">
               د. مي الركيان
             </h4>
             <p data-ar="مدير إدارة الآثار" data-en="Director of Archaeology">
               مدير إدارة الآثار
-            </p>
-          </div>
-          <div class="team-member fade-in">
-            <div class="team-avatar">ل</div>
-            <h4 data-ar="م. لبنى الشعلان" data-en="Eng. Lubna Al-Shaalan">
-              م. لبنى الشعلان
-            </h4>
-            <p data-ar="مدير إدارة الشراكات" data-en="Director of Partnerships">
-              مدير إدارة الشراكات
-            </p>
-          </div>
-          <div class="team-member fade-in">
-            <div class="team-avatar">ط</div>
-            <h4 data-ar="م. طاهر الجندي" data-en="Eng. Taher Al-Jundi">
-              م. طاهر الجندي
-            </h4>
-            <p data-ar="مدير المشاريع" data-en="Projects Director">
-              مدير المشاريع
-            </p>
-          </div>
-          <div class="team-member fade-in">
-            <div class="team-avatar">م</div>
-            <h4 data-ar="م. لمياء الحجيلي" data-en="Eng. Lamya Al-Hujaili">
-              م. لمياء الحجيلي
-            </h4>
-            <p
-              data-ar="مدير إدارة تطوير الأعمال"
-              data-en="Business Development Director"
-            >
-              مدير إدارة تطوير الأعمال
-            </p>
-          </div>
-          <div class="team-member fade-in">
-            <div class="team-avatar">أ</div>
-            <h4 data-ar="م. أحمد كامل" data-en="Eng. Ahmed Kamel">
-              م. أحمد كامل
-            </h4>
-            <p
-              data-ar="مدير إدارة العمارة والتصميم"
-              data-en="Director of Architecture & Design"
-            >
-              مدير إدارة العمارة والتصميم
             </p>
           </div>
           <div class="team-member fade-in">
@@ -1571,6 +2129,18 @@
             </p>
           </div>
           <div class="team-member fade-in">
+            <div class="team-avatar">أ</div>
+            <h4 data-ar="أ. أثير الشرهان" data-en="Ms. Atheer Al-Sharhan">
+              أ. أثير الشرهان
+            </h4>
+            <p
+              data-ar="مدير الاتصال والتسويق"
+              data-en="Director of Communication & Marketing"
+            >
+              مدير الاتصال والتسويق
+            </p>
+          </div>
+          <div class="team-member fade-in">
             <div class="team-avatar">س</div>
             <h4 data-ar="أ. سعد الحارثي" data-en="Mr. Saad Al-Harthy">
               أ. سعد الحارثي
@@ -1583,15 +2153,24 @@
             </p>
           </div>
           <div class="team-member fade-in">
-            <div class="team-avatar">د</div>
-            <h4 data-ar="د. مصطفى رسلان" data-en="Dr. Mustafa Raslan">
-              د. مصطفى رسلان
+            <div class="team-avatar">ط</div>
+            <h4 data-ar="م. طاهر الجندي" data-en="Eng. Taher Al-Jundi">
+              م. طاهر الجندي
+            </h4>
+            <p data-ar="مدير المشاريع" data-en="Projects Director">
+              مدير المشاريع
+            </p>
+          </div>
+          <div class="team-member fade-in">
+            <div class="team-avatar">أ</div>
+            <h4 data-ar="م. أحمد كامل" data-en="Eng. Ahmed Kamel">
+              م. أحمد كامل
             </h4>
             <p
-              data-ar="مدير الإدارة المالية"
-              data-en="Director of Financial Management"
+              data-ar="مدير إدارة العمارة والتصميم"
+              data-en="Director of Architecture & Design"
             >
-              مدير الإدارة المالية
+              مدير إدارة العمارة والتصميم
             </p>
           </div>
         </div>
@@ -1599,99 +2178,285 @@
     </section>
 
     <!-- Clients -->
-    <section class="clients">
-      <div class="container">
-        <h2 class="section-title" data-ar="عملاؤنا" data-en="Our Clients">
-          عملاؤنا
-        </h2>
-        <p
-          class="section-subtitle"
-          data-ar="شراكات مع أبرز الجهات الحكومية في المملكة"
-          data-en="Partnerships with leading government entities in the Kingdom"
-        >
-          شراكات مع أبرز الجهات الحكومية في المملكة
-        </p>
-        <div class="clients-grid">
-          <div
-            class="client-card fade-in"
-            data-ar="وزارة الثقافة"
-            data-en="Ministry of Culture"
-          >
-            وزارة الثقافة
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="وزارة السياحة"
-            data-en="Ministry of Tourism"
-          >
-            وزارة السياحة
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="هيئة تطوير بوابة الدرعية"
-            data-en="Diriyah Gate Development Authority"
-          >
-            هيئة تطوير بوابة الدرعية
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="الهيئة الملكية لمحافظة العلا"
-            data-en="Royal Commission for AlUla"
-          >
-            الهيئة الملكية لمحافظة العلا
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="وزارة الموارد البشرية والتنمية الاجتماعية"
-            data-en="Ministry of Human Resources & Social Development"
-          >
-            وزارة الموارد البشرية والتنمية الاجتماعية
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="الشركة السعودية لتحلية المياه المالحة"
-            data-en="SWCC"
-          >
-            الشركة السعودية لتحلية المياه المالحة
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="وزارة الداخلية"
-            data-en="Ministry of Interior"
-          >
-            وزارة الداخلية
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="وزارة المالية"
-            data-en="Ministry of Finance"
-          >
-            وزارة المالية
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="الجمارك السعودية"
-            data-en="Saudi Customs"
-          >
-            الجمارك السعودية
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="نادي ضباط القوات المسلحة"
-            data-en="Armed Forces Officers Club"
-          >
-            نادي ضباط القوات المسلحة
-          </div>
-          <div
-            class="client-card fade-in"
-            data-ar="قوات أمن المنشآت"
-            data-en="Facilities Security Forces"
-          >
-            قوات أمن المنشآت
-          </div>
+<section class="clients">
+  <div class="container">
+    <h2 class="section-title" data-ar="عملاؤنا" data-en="Our Clients">
+      عملاؤنا
+    </h2>
+    <p
+      class="section-subtitle"
+      data-ar="شراكات مع أبرز الجهات الحكومية في المملكة"
+      data-en="Partnerships with leading government entities in the Kingdom"
+    >
+      شراكات مع أبرز الجهات الحكومية في المملكة
+    </p>
+    <div class="clients-grid">
+      <!-- وزارة الثقافة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Ministry-of-Culture-1.png" 
+          alt="وزارة الثقافة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة الثقافة" data-en="Ministry of Culture">
+          وزارة الثقافة
         </div>
       </div>
-    </section>
+      
+      <!-- وزارة السياحة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Ministry-of-Tourism.png" 
+          alt="وزارة السياحة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة السياحة" data-en="Ministry of Tourism">
+          وزارة السياحة
+        </div>
+      </div>
+
+      <!-- هيئة تطوير بوابة الدرعية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Diriyah.png" 
+          alt="هيئة تطوير بوابة الدرعية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="هيئة تطوير بوابة الدرعية" data-en="Diriyah Gate Development Authority">
+          هيئة تطوير بوابة الدرعية
+        </div>
+      </div>
+
+      <!-- الهيئة الملكية لمحافظة العلا -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Royal-Commission-for-Al-Ula.png" 
+          alt="الهيئة الملكية لمحافظة العلا"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="الهيئة الملكية لمحافظة العلا" data-en="Royal Commission for AlUla">
+          الهيئة الملكية لمحافظة العلا
+        </div>
+      </div>
+
+      <!-- وزارة الموارد البشرية والتنمية الاجتماعية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Ministry-of-Human-Resources-and-Social-Development.png" 
+          alt="وزارة الموارد البشرية والتنمية الاجتماعية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة الموارد البشرية والتنمية الاجتماعية" data-en="Ministry of Human Resources & Social Development">
+          وزارة الموارد البشرية والتنمية الاجتماعية
+        </div>
+      </div>
+
+      <!-- المياه الوطنية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Saudi-Water-Authority.png" 
+          alt="المياه الوطنية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="المياه الوطنية" data-en="National Water Company">
+          المياه الوطنية
+        </div>
+      </div>
+
+      <!-- وزارة الداخلية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Ministry-of-Interior.png" 
+          alt="وزارة الداخلية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة الداخلية" data-en="Ministry of Interior">
+          وزارة الداخلية
+        </div>
+      </div>
+
+      <!-- وزارة المالية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Ministry-of-Finance.png" 
+          alt="وزارة المالية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة المالية" data-en="Ministry of Finance">
+          وزارة المالية
+        </div>
+      </div>
+
+      <!-- الجمارك السعودية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Saudi-Customs-1.png" 
+          alt="الجمارك السعودية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="الجمارك السعودية" data-en="Saudi Customs">
+          الجمارك السعودية
+        </div>
+      </div>
+
+      <!-- نادي ضباط القوات المسلحة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/New-LogoOfclub.jpg" 
+          alt="نادي ضباط القوات المسلحة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="نادي ضباط القوات المسلحة" data-en="Armed Forces Officers Club">
+          نادي ضباط القوات المسلحة
+        </div>
+      </div>
+
+      <!-- كلية الملك فهد الأمنية -->
+      <div class="client-card fade-in">
+        <img 
+  src="./asset/images/logos/كلية-الملك-فهد-الأمنية.png" 
+  alt="كلية الملك فهد الأمنية"
+  class="client-logo"
+/>
+        <div class="client-name" data-ar="كلية الملك فهد الأمنية" data-en="King Fahd Security College">
+          كلية الملك فهد الأمنية
+        </div>
+      </div>
+
+      <!-- هيئة المتاحف -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Museums-Commission-2.png" 
+          alt="هيئة المتاحف"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="هيئة المتاحف" data-en="Museums Commission">
+          هيئة المتاحف
+        </div>
+      </div>
+
+      <!-- هيئة التراث -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Hertiage-Commission.png" 
+          alt="هيئة التراث"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="هيئة التراث" data-en="Heritage Commission">
+          هيئة التراث
+        </div>
+      </div>
+
+      <!-- برنامج التراث الثقافي -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/cultural-heritage-program.png" 
+          alt="برنامج التراث الثقافي"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="برنامج التراث الثقافي" data-en="Cultural Heritage Program">
+          برنامج التراث الثقافي
+        </div>
+      </div>
+
+      <!-- الهيئة الملكية لمدينة الرياض -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Royal-Commission-For-Riyadh-City-01.png" 
+          alt="الهيئة الملكية لمدينة الرياض"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="الهيئة الملكية لمدينة الرياض" data-en="Royal Commission for Riyadh City">
+          الهيئة الملكية لمدينة الرياض
+        </div>
+      </div>
+
+      <!-- الهيئة الملكية لمكة المكرمة والمشاعر المقدسة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Royal-Commission-for-Makkah-City-Holy-Sites.png" 
+          alt="الهيئة الملكية لمكة المكرمة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="الهيئة الملكية لمكة المكرمة" data-en="Royal Commission for Makkah City">
+          الهيئة الملكية لمكة المكرمة
+        </div>
+      </div>
+
+      <!-- وزارة التعليم -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Minisrty-of-Education.png" 
+          alt="وزارة التعليم"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة التعليم" data-en="Ministry of Education">
+          وزارة التعليم
+        </div>
+      </div>
+
+      <!-- وزارة الزراعة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Minisrty-of-Agriculture.png" 
+          alt="وزارة الزراعة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة الزراعة" data-en="Ministry of Agriculture">
+          وزارة الزراعة
+        </div>
+      </div>
+
+      <!-- وزارة الشؤون الإسلامية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Saudi-Ministry-Islamic-01-1.png" 
+          alt="وزارة الشؤون الإسلامية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="وزارة الشؤون الإسلامية" data-en="Ministry of Islamic Affairs">
+          وزارة الشؤون الإسلامية
+        </div>
+      </div>
+
+      <!-- برنامج جودة الحياة -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Quality-of-Life-Program.png" 
+          alt="برنامج جودة الحياة"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="برنامج جودة الحياة" data-en="Quality of Life Program">
+          برنامج جودة الحياة
+        </div>
+      </div>
+
+      <!-- هيئة تطوير المنطقة الشرقية -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Sharqia-Development-Authority.png" 
+          alt="هيئة تطوير المنطقة الشرقية"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="هيئة تطوير المنطقة الشرقية" data-en="Sharqia Development Authority">
+          هيئة تطوير المنطقة الشرقية
+        </div>
+      </div>
+
+      <!-- البلد التاريخي -->
+      <div class="client-card fade-in">
+        <img 
+          src="./asset/images/logos/Al_Balad.png" 
+          alt="البلد التاريخي"
+          class="client-logo"
+        />
+        <div class="client-name" data-ar="البلد التاريخي" data-en="Al Balad Historic District">
+          البلد التاريخي
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Contact -->
     <section class="contact" id="contact">
@@ -1730,10 +2495,10 @@
             </div>
             <h4 data-ar="العنوان" data-en="Address">العنوان</h4>
             <p
-              data-ar="الرياض، المملكة العربية السعودية"
-              data-en="Riyadh, Saudi Arabia"
+              data-ar="مبنى رقم 2484، شارع أبي سفيان بن حرب، حي النزهة، الرمز البريدي 12479، الرياض، المملكة العربية السعودية"
+              data-en="Building No. 2484, Abi Sufyan Ibn Harb St, Al Nuzha District, Postal Code 12479, Riyadh, Saudi Arabia"
             >
-              الرياض، المملكة العربية السعودية
+              مبنى رقم 2484، شارع أبي سفيان بن حرب، حي النزهة، الرمز البريدي 12479، الرياض، المملكة العربية السعودية
             </p>
           </div>
         </div>
@@ -1744,10 +2509,10 @@
     <footer>
       <div class="container">
         <p
-          data-ar="©️ 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة."
-          data-en="©️ 2026 Majal Al Enjaz For Advanced Works. All rights reserved."
+          data-ar="© 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة."
+          data-en="© 2026 Majal Al Enjaz For Advanced Works. All rights reserved."
         >
-          ©️ 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة.
+          © 2026 مجال الإنجاز للأعمال المتقدمة. جميع الحقوق محفوظة.
         </p>
       </div>
     </footer>
